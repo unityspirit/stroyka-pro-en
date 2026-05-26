@@ -1,5 +1,5 @@
-﻿/* ═══════════════════════════════════════
-   СТРОЙПРО — ScrollCanvas Engine (Native Scroll)
+/* ═══════════════════════════════════════
+   CONSTRUCTION PRO — ScrollCanvas Engine (Native Scroll)
    ═══════════════════════════════════════ */
 'use strict';
 
@@ -161,6 +161,6 @@ if (form) {
     const btn = document.getElementById('submitBtn');
     btn.textContent = '✓ Request submitted!';
     btn.style.background = '#4ECDC4';
-    setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.style.background = ''; }, 3000);
+    setTimeout(() => { btn.textContent = 'Order Website'; btn.style.background = ''; }, 3000);
   });
 }
