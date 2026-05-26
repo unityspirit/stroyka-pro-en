@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════
+﻿/* ═══════════════════════════════════════
    CONSTRUCTION PRO — ScrollCanvas Engine (Native Scroll)
    ═══════════════════════════════════════ */
 'use strict';
@@ -6,7 +6,7 @@
 /* ── Constants ──────────────────────────── */
 const TOTAL_FRAMES = 576;
 const PAGE_COUNT = 6;
-const LERP = 0.08;
+const LERP = 0.02;
 const CONCURRENCY = 48;
 
 /* ── State ──────────────────────────────── */

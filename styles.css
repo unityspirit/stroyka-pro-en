@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════
+﻿/* ═══════════════════════════════════════
    СТРОЙПРО — Construction & Restoration
    Design System: Native Scroll-Snap
    Card fill: 50% | Borders: 3px
@@ -35,7 +35,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   background: #0a0a14;
 }
 body {
