@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C97A"/>
+      <stop offset="50%" stop-color="#D4A94B"/>
+      <stop offset="100%" stop-color="#B08930"/>
+    </linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3DD6D0"/>
+      <stop offset="100%" stop-color="#2BA8A3"/>
+    </linearGradient>
+  </defs>
+  <!-- Building outline -->
+  <path d="M40 160 L40 80 L100 40 L160 80 L160 160 Z" stroke="url(#g)" stroke-width="3" fill="none"/>
+  <!-- Roof accent -->
+  <path d="M100 40 L40 80 L160 80 Z" stroke="url(#g)" stroke-width="2" fill="url(#g)" opacity=".15"/>
+  <!-- Windows -->
+  <rect x="58" y="95" width="22" height="26" rx="3" stroke="url(#g)" stroke-width="2" fill="none"/>
+  <rect x="120" y="95" width="22" height="26" rx="3" stroke="url(#g)" stroke-width="2" fill="none"/>
+  <!-- Door -->
+  <rect x="87" y="120" width="26" height="40" rx="4" stroke="url(#t)" stroke-width="2.5" fill="none"/>
+  <circle cx="108" cy="142" r="2.5" fill="url(#t)"/>
+  <!-- Foundation line -->
+  <line x1="30" y1="160" x2="170" y2="160" stroke="url(#g)" stroke-width="3"/>
+  <!-- СП text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="url(#g)" letter-spacing="6">СП</text>
+</svg>

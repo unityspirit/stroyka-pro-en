@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Website Sample — Template for Your Business</title>
+  <meta name="description" content="Cinematic website sample. See how your business could look online.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ═══ LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo"><img src="assets/logo.svg" alt="Sample" class="loader-logo-img"> YOUR COMPANY</div>
+      <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+      <div class="loader-pct" id="loaderPct">0%</div>
+    </div>
+  </div>
+
+  <!-- ═══ SCROLL CANVAS ═══ -->
+  <canvas id="scrollCanvas"></canvas>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="assets/logo.svg" alt="Sample" class="logo-img">
+        <span class="gradient-text">YOUR COMPANY</span>
+      </a>
+      <nav class="desktop-nav" id="desktopNav">
+        <a href="#" class="nav-link active" data-section="0">Главная</a>
+        <a href="#" class="nav-link" data-section="1">Services</a>
+        <a href="#" class="nav-link" data-section="2">Проекты</a>
+        <a href="#" class="nav-link" data-section="3">География</a>
+        <a href="#" class="nav-link" data-section="4">About Us</a>
+        <a href="#" class="nav-link" data-section="5">Contact</a>
+      </nav>
+      <a href="tel:#" class="header-cta">YOUR PHONE</a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#" class="nav-link" data-section="0">Главная</a>
+      <a href="#" class="nav-link" data-section="1">Services</a>
+      <a href="#" class="nav-link" data-section="2">Проекты</a>
+      <a href="#" class="nav-link" data-section="3">География</a>
+      <a href="#" class="nav-link" data-section="4">About Us</a>
+      <a href="#" class="nav-link" data-section="5">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ═══ UI LAYER ═══ -->
+  <div id="ui-layer">
+
+    <!-- ── SECTION 0: HERO ── -->
+    <section class="page" id="page-0">
+      <div class="page-inner hero-content">
+        <img src="assets/logo.svg" alt="Sample" class="hero-logo reveal">
+        <div class="hero-badge">YOUR BRAND • YOUR NICHE • YOUR SPECIALTY</div>
+        <h1 class="hero-title">
+          YOUR COMPANY<br>
+          <span class="gradient-text">ВАШЕЙ</span><br>
+          <span class="hero-title-sub">КОМПАНИИ</span>
+        </h1>
+        <p class="hero-sub">Here you can write your slogan, a brief description, or a hot offer — anything you like!</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary" data-section="5">Custom Button</a>
+          <a href="#" class="btn btn-outline" data-section="2">Your Links</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num gradient-text">18+</span><span class="stat-label">Years of Experience</span></div>
+          <div class="stat"><span class="stat-num gradient-text">500+</span><span class="stat-label">Объектов</span></div>
+          <div class="stat"><span class="stat-num gradient-text">12</span><span class="stat-label">Стран</span></div>
+          <div class="stat"><span class="stat-num gradient-text">100%</span><span class="stat-label">Гарантия</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 1: SERVICES ── -->
+    <section class="page" id="page-1">
+      <div class="page-inner">
+        <h2 class="section-title">Your <span class="gradient-text">Services</span></h2>
+        <p class="section-sub">Here you can describe your offerings as shown in the examples below.</p>
+        <div class="cards-grid services-grid">
+          <div class="card reveal">
+            <div class="card-icon">🏗️</div>
+            <h3>Строительство домов</h3>
+            <p>Частные резиденции, коттеджи и шале от 80 до 2 000 м². Каркасно-монолитная, кирпичная, деревянная технологии. Энергоэффективность класса А+.</p>
+            <div class="card-price">от 85 000 ₽/м²</div>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🏛️</div>
+            <h3>Реставрация ОКН</h3>
+            <p>Реставрация объектов культурного наследия по лицензии Минкультуры. Фасады, лепнина, интерьеры, живопись. Аттестованные реставраторы I-II категории.</p>
+            <div class="card-price">Лицензия Минкультуры</div>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">📐</div>
+            <h3>Проектирование</h3>
+            <p>Архитектурное и конструктивное проектирование. 3D-визуализация, BIM-модели, рабочая документация, авторский надзор на всех этапах.</p>
+            <div class="card-price">3D + BIM</div>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🔧</div>
+            <h3>Реконструкция</h3>
+            <p>Капитальная реконструкция с перепланировкой. Усиление фундаментов, надстройка этажей, модернизация инженерных систем.</p>
+            <div class="card-price">от 45 000 ₽/м²</div>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🌍</div>
+            <h3>Зарубежные проекты</h3>
+            <p>Строительство и реставрация в Европе, ОАЭ, СНГ. Знание международных стандартов, юридическое сопровождение, местные согласования.</p>
+            <div class="card-price">12 стран</div>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🎨</div>
+            <h3>Интерьер и ландшафт</h3>
+            <p>Премиальная отделка интерьеров, авторский дизайн, ландшафтный дизайн участка. Мебель на заказ, умный дом, мультирум.</p>
+            <div class="card-price">Премиум</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: PROJECTS ── -->
+    <section class="page" id="page-2">
+      <div class="page-inner">
+        <h2 class="section-title">Здесь могут быть <span class="gradient-text">Examples of ваших работ</span></h2>
+        <p class="section-sub">Add something that will impress everyone</p>
+        <div class="cards-grid projects-grid">
+          <div class="card project-card reveal">
+            <div class="project-tag">Пример</div>
+            <h3>Комплекс «Луч"</h3>
+            <p class="project-meta">📍 Регион А &bull; 450 м² &bull; Монолит</p>
+            <p>Жилой комплекс с панорамным остеклением и эксплуатируемой кровлей. Геотермальное отопление, система умного дома.</p>
+            <div class="project-stats">
+              <span>⏱ 14 мес.</span><span>💰 Премиум</span><span>⭐ 5.0</span>
+            </div>
+          </div>
+          <div class="card project-card reveal">
+            <div class="project-tag tag-restore">Пример</div>
+            <h3>Здание «Наследие", XX век</h3>
+            <p class="project-meta">📍 Регион Б &bull; 1 200 м² &bull; Реставрация</p>
+            <p>Полная реставрация фасадов, воссоздание декоративных элементов по архивным чертежам. Реставрация интерьеров.</p>
+            <div class="project-stats">
+              <span>⏱ 24 мес.</span><span>🏅 Экспертная оценка</span><span>⭐ 5.0</span>
+            </div>
+          </div>
+          <div class="card project-card reveal">
+            <div class="project-tag tag-abroad">Пример</div>
+            <h3>Вилла «Морской бриз"</h3>
+            <p class="project-meta">📍 Побережье &bull; 320 м² &bull; Средиземноморский</p>
+            <p>Вилла с видом на залив. Натуральный камень, террасы, бассейн. Полный цикл от покупки участка до меблировки.</p>
+            <div class="project-stats">
+              <span>⏱ 18 мес.</span><span>🌊 Первая линия</span><span>⭐ 5.0</span>
+            </div>
+          </div>
+          <div class="card project-card reveal">
+            <div class="project-tag">Пример</div>
+            <h3>Шале «Вершина"</h3>
+            <p class="project-meta">📍 Горный курорт &bull; 280 м² &bull; Брус + камень</p>
+            <p>Горное шале на высоте 1 800 м. Кровля из натурального материала, панорамные окна. Автономная система отопления.</p>
+            <div class="project-stats">
+              <span>⏱ 12 мес.</span><span>🏔️ 1 800 м</span><span>⭐ 5.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: GEOGRAPHY ── -->
+    <section class="page" id="page-3">
+      <div class="page-inner">
+        <h2 class="section-title">Наша <span class="gradient-text">география</span></h2>
+        <p class="section-sub">Describe how your collaboration with clients works, as shown in the example below</p>
+        <div class="geo-layout">
+          <div class="card geo-card reveal">
+            <h3 class="gradient-text">🇷🇺 Россия</h3>
+            <ul class="geo-list">
+              <li>Москва и Подмосковье — 200+ объектов</li>
+              <li>Санкт-Петербург — реставрация ОКН</li>
+              <li>Краснодарский край и Сочи</li>
+              <li>Кавказские Минеральные Воды</li>
+              <li>Крым — прибрежные виллы</li>
+              <li>Казань, Екатеринбург, Новосибирск</li>
+            </ul>
+          </div>
+          <div class="card geo-card geo-card-intl reveal">
+            <h3 class="gradient-text">🌍 За рубежом</h3>
+            <ul class="geo-list">
+              <li>🇲🇪 Черногория — Тиват, Будва, Котор</li>
+              <li>🇹🇷 Турция — Анталья, Бодрум, Аланья</li>
+              <li>🇦🇪 ОАЭ — Дубай, Абу-Даби</li>
+              <li>🇨🇾 Кипр — Лимассол, Пафос</li>
+              <li>🇬🇪 Грузия — Тбилиси, Батуми</li>
+              <li>🇷🇸 Сербия — Белград, Нови-Сад</li>
+            </ul>
+          </div>
+          <div class="card geo-card process-card reveal">
+            <h3 class="gradient-text">📋 Процесс работы</h3>
+            <div class="process-steps">
+              <div class="step"><span class="step-num">01</span><span>Бесплатная консультация и анализ участка</span></div>
+              <div class="step"><span class="step-num">02</span><span>Проектирование и 3D-визуализация</span></div>
+              <div class="step"><span class="step-num">03</span><span>Фиксация сметы и подписание договора</span></div>
+              <div class="step"><span class="step-num">04</span><span>Строительство / реставрация с авторским надзором</span></div>
+              <div class="step"><span class="step-num">05</span><span>Приёмка, гарантия 5 years, постгарантийное обслуживание</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: WHY US ── -->
+    <section class="page" id="page-4">
+      <div class="page-inner">
+        <h2 class="section-title">О <span class="gradient-text">нас</span></h2>
+        <p class="section-sub">Расскажите о achievements NAME HERE, поделитесь хорошими testimonials</p>
+        <div class="cards-grid about-grid">
+          <div class="card reveal">
+            <div class="card-icon">✅</div>
+            <h3>Полный цикл</h3>
+            <p>От эскиза до ключей — проектирование, строительство, отделка. Один подрядчик, один договор. Компания «Орион Строй".</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">📊</div>
+            <h3>Фиксированная смета</h3>
+            <p>Прозрачная смета в договоре. Никаких скрытых доплат. Компания «Гранит Инвест" рекомендует.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🏆</div>
+            <h3>Лицензии</h3>
+            <p>Полный пакет лицензий и разрешений. Сертификация «Alpha Стандарт". ISO 9001:2015.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card-icon">🌐</div>
+            <h3>География</h3>
+            <p>Проекты в разных городах. Знаем нормы, работаем с местными подрядчиками «LLC Вектор Групп".</p>
+          </div>
+        </div>
+        <div class="testimonials-row">
+          <div class="testimonial card reveal">
+            <blockquote>«Построили объект — от покупки участка до меблировки. Всё чётко, в срок и без доплат. Рекомендуем!"</blockquote>
+            <cite>— Client «LLC StarPath"</cite>
+          </div>
+          <div class="testimonial card reveal">
+            <blockquote>«Реставрация нашего здания — ювелирная работа. Каждая деталь восстановлена по архивным материалам."</blockquote>
+            <cite>— Фонд «Компания Галактика"</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: CONTACTS ── -->
+    <section class="page" id="page-5">
+      <div class="page-inner">
+        <h2 class="section-title">Обсудить <span class="gradient-text">проект</span></h2>
+        <p class="section-sub">Add your contacts, address, and social media so clients can reach you</p>
+        <div class="contact-layout">
+          <form class="contact-form card reveal" id="contactForm">
+            <input type="text" placeholder="Your name and company" required id="inputName">
+            <input type="tel" placeholder="+1 (___) ___-____" required id="inputPhone">
+            <select id="inputNiche">
+              <option value="">Your industry</option>
+              <option>Healthcare / Beauty</option>
+              <option>Restaurants / HoReCa</option>
+              <option>Construction / Remodeling</option>
+              <option>Architecture / Design</option>
+              <option>IT / Consulting</option>
+              <option>Auto Business / Detailing</option>
+              <option>Fitness / Sports</option>
+              <option>Education</option>
+              <option>Tourism / Hotels</option>
+              <option>Manufacturing</option>
+              <option>Other</option>
+            </select>
+            <select id="inputBudget">
+              <option value="">Бюджет на сайт</option>
+              <option>45 000 – 80 000 ₽</option>
+              <option>80 000 – 120 000 ₽</option>
+              <option>120 000 – 200 000 ₽</option>
+              <option>от 200 000 ₽</option>
+            </select>
+            <textarea placeholder="Что хотите получить от сайта? Какой сейчас сайт (ссылка)?" rows="3" id="inputMessage"></textarea>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Order Website</button>
+            <p class="form-note">Ответим в течение 2 часов в рабочее время. Без спама.</p>
+          </form>
+          <div class="contact-info card reveal">
+            <div class="contact-row">
+              <span class="contact-icon">📞</span>
+              <div><strong>Phone</strong><a href="tel:#">YOUR PHONE</a></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">📧</span>
+              <div><strong>Email</strong><a href="mailto:#">ВАША ПОЧТА</a></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">📍</span>
+              <div><strong>Головной офис</strong><span>ВАШ Address</span></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">🕐</span>
+              <div><strong>Режим работы</strong><span>Пн–Пт: 09:00 – 19:00, Сб: 10:00 – 16:00</span></div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">💬</span>
+              <div><strong>Messengers</strong><span>WhatsApp • Telegram • Viber</span></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px">
+          <a href="https://unityspirit.github.io/global-plus-en/#page-4" class="btn btn-outline" style="font-size:16px;padding:14px 40px">BACK TO MAIN PAGE</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
