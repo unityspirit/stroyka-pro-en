@@ -480,3 +480,9 @@ p, li, span, strong, em, a, div, blockquote, label, td, th, figcaption {
   .btn { width: 100%; text-align: center; }
   .hero-badge { font-size: 9px; letter-spacing: 2px; padding: 6px 14px; }
 }
+
+
+/* Mobile contact card fix */
+@media(max-width:768px){
+  .contact-info-card { max-width: 100%; width: 100%; box-sizing: border-box; }
+}
