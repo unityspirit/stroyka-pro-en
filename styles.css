@@ -15,15 +15,7 @@
   --accent3: #E8E8E8;
   --card-bg: rgba(0, 0, 0, 0.50);
   --card-border: #D4A94B;
-  --ts:
-    1px 1px 3px rgba(0,0,0,1),
-    -1px -1px 3px rgba(0,0,0,1),
-    1px -1px 3px rgba(0,0,0,1),
-    -1px 1px 3px rgba(0,0,0,1),
-    0 2px 4px rgba(0,0,0,.8),
-    0 -2px 4px rgba(0,0,0,.8),
-    2px 0 4px rgba(0,0,0,.8),
-    -2px 0 4px rgba(0,0,0,.8);
+  --ts: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000, 0 0 6px rgba(0,0,0,.7);
   --shadow-dark: 0 0 3px 3px rgba(0,0,0,.4), 0 0 5px 5px rgba(0,0,0,.15);
   --shadow-light: 0 0 3px 3px rgba(255,255,255,.12), 0 0 5px 5px rgba(255,255,255,.05);
   --font-display: 'Bebas Neue', sans-serif;
