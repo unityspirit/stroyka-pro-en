@@ -77,7 +77,7 @@ function preloadFrames() {
       if (realPct >= PRELOADER_THRESHOLD) {
         preloaderDismissed = true; clearTimeout(fallbackTimer); finishLoading();
         const slb = document.getElementById('siteLoadingBar');
-        setTimeout(() => { if(slb) slb.classList.add('active'); }, 600);
+        setTimeout(() => { if(slb) slb.style.opacity='1';slb.style.visibility='visible'; }, 600);
       }
     } else {
       const fill = document.getElementById('siteLoadingFillInner');
@@ -88,7 +88,7 @@ function preloadFrames() {
       if (loadedCount >= TOTAL_FRAMES) {
         const sbar = document.getElementById('siteLoadingBar');
         if (txt) txt.textContent = 'Loading complete';
-        setTimeout(() => { if(sbar) { sbar.classList.remove('active'); sbar.classList.add('done'); } }, 800);
+        setTimeout(() => { if(sbar) { sbar.style.opacity='0';setTimeout(function(){if(sbar)sbar.remove()},600); } }, 800);
       }
     }
   }
@@ -102,7 +102,7 @@ function finishLoading() {
   const slb = document.getElementById('siteLoadingBar');
   const slbTxt = document.getElementById('siteLoadingText');
   if (slbTxt) slbTxt.textContent = 'Loading complete';
-  setTimeout(() => { if(slb) { slb.classList.remove('active'); slb.classList.add('done'); } }, 800);
+  setTimeout(() => { if(slb) { slb.style.opacity='0';setTimeout(function(){if(slb)slb.remove()},600); } }, 800);
   // First page is-active
   if (pages[0]) pages[0].classList.add('is-active');
 }
@@ -194,3 +194,13 @@ if (form) {
 const siteBarStyle = document.createElement('style');
 siteBarStyle.textContent = '.site-loading-bar{position:fixed;bottom:0;left:0;width:100%;height:28px;background:rgba(10,10,10,.85);backdrop-filter:blur(8px);z-index:9998;display:flex;align-items:center;padding:0 16px;gap:10px;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;border-top:1px solid rgba(255,255,255,.08)}.site-loading-bar.active{opacity:1;visibility:visible}.site-loading-bar.done{opacity:0;visibility:hidden}.site-loading-fill{flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}.site-loading-fill-inner{height:100%;width:0;background:linear-gradient(90deg,var(--gold,var(--accent,#c9a84c)),var(--gold-light,#e8c97a));border-radius:2px;transition:width .2s}.site-loading-text{font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap}';
 document.head.appendChild(siteBarStyle);
+
+// === SITE LOADING BAR (Phase 2 — deferred) ===
+(function(){
+  if (document.getElementById('siteLoadingBar')) return;
+  var el = document.createElement('div');
+  el.id = 'siteLoadingBar';
+  el.style.cssText = 'position:fixed;bottom:0;left:0;width:100%;height:32px;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);z-index:9998;display:flex;align-items:center;padding:0 20px;gap:12px;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;border-top:1px solid rgba(255,255,255,.08);';
+  el.innerHTML = '<div style="flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;"><div id="slbFill" style="height:100%;width:0;background:linear-gradient(90deg,var(--gold,var(--accent,#c9a84c)),#e8c97a);border-radius:2px;transition:width .25s;"></div></div><span id="siteLoadingText" style="font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap;">Loading video...</span>';
+  document.body.appendChild(el);
+})();
