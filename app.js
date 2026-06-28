@@ -1,4 +1,4 @@
-﻿/* ═══════════════════════════════════════
+/* ═══════════════════════════════════════
    CONSTRUCTION PRO — ScrollCanvas Engine (Native Scroll)
    ═══════════════════════════════════════ */
 'use strict';
@@ -75,12 +75,17 @@ function preloadFrames() {
       if (loaderPct) loaderPct.textContent = visualPct + '%';
       if (!isReady && loadedCount === 1) { isReady = true; drawFrame(0); }
       if (realPct >= PRELOADER_THRESHOLD) {
-        preloaderDismissed = true; clearTimeout(fallbackTimer); finishLoading();
+        preloaderDismissed = true;
+        clearTimeout(fallbackTimer);
+        finishLoading();
         const slb = document.getElementById('siteLoadingBar');
-        setTimeout(() => { if(slb) slb.style.opacity='1';slb.style.visibility='visible'; }, 600);
+        if (slb) {
+          slb.style.opacity = '1';
+          slb.style.visibility = 'visible';
+        }
       }
     } else {
-      const fill = document.getElementById('siteLoadingFillInner');
+      const fill = document.getElementById('slbFill');
       const txt = document.getElementById('siteLoadingText');
       const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
       if (fill) fill.style.width = phase2Pct + '%';
@@ -88,7 +93,13 @@ function preloadFrames() {
       if (loadedCount >= TOTAL_FRAMES) {
         const sbar = document.getElementById('siteLoadingBar');
         if (txt) txt.textContent = 'Loading complete';
-        setTimeout(() => { if(sbar) { sbar.style.opacity='0';setTimeout(function(){if(sbar)sbar.remove()},600); } }, 800);
+        setTimeout(() => {
+          if (sbar) {
+            sbar.style.opacity = '0';
+            sbar.style.visibility = 'hidden';
+            setTimeout(() => sbar.remove(), 600);
+          }
+        }, 800);
       }
     }
   }
@@ -98,11 +109,7 @@ function preloadFrames() {
 
 function finishLoading() {
   isReady = true;
-  loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700);
-  const slb = document.getElementById('siteLoadingBar');
-  const slbTxt = document.getElementById('siteLoadingText');
-  if (slbTxt) slbTxt.textContent = 'Loading complete';
-  setTimeout(() => { if(slb) { slb.style.opacity='0';setTimeout(function(){if(slb)slb.remove()},600); } }, 800);
+  if (loader) loader.classList.add('hidden');
   // First page is-active
   if (pages[0]) pages[0].classList.add('is-active');
 }
