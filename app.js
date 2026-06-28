@@ -98,7 +98,7 @@ function preloadFrames() {
 
 function finishLoading() {
   isReady = true;
-  if (!preloaderDismissed) { loader.classList.add('hidden'); }
+  if (!preloaderDismissed) { loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700); }
   const slb = document.getElementById('siteLoadingBar');
   const slbTxt = document.getElementById('siteLoadingText');
   if (slbTxt) slbTxt.textContent = 'Loading complete';
