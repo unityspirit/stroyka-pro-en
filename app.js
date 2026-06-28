@@ -15,6 +15,8 @@ let targetFrame = 0;
 let images = new Array(TOTAL_FRAMES);
 let loadedCount = 0;
 let isReady = false;
+let preloaderDismissed = false;
+const PRELOADER_THRESHOLD = 15;
 const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent) || window.innerWidth < 768;
 
 /* ── DOM refs ───────────────────────────── */
@@ -66,11 +68,29 @@ function preloadFrames() {
   }
 
   function progress() {
-    const pct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
-    if (loaderFill) loaderFill.style.width = pct + '%';
-    if (loaderPct) loaderPct.textContent = pct + '%';
-    if (!isReady && loadedCount === 1) { isReady = true; drawFrame(0); }
-    if (loadedCount >= TOTAL_FRAMES) { clearTimeout(fallbackTimer); finishLoading(); }
+    const realPct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+    if (!preloaderDismissed) {
+      const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
+      if (loaderFill) loaderFill.style.width = visualPct + '%';
+      if (loaderPct) loaderPct.textContent = visualPct + '%';
+      if (!isReady && loadedCount === 1) { isReady = true; drawFrame(0); }
+      if (realPct >= PRELOADER_THRESHOLD) {
+        preloaderDismissed = true; clearTimeout(fallbackTimer); finishLoading();
+        const slb = document.getElementById('siteLoadingBar');
+        setTimeout(() => { if(slb) slb.classList.add('active'); }, 600);
+      }
+    } else {
+      const fill = document.getElementById('siteLoadingFillInner');
+      const txt = document.getElementById('siteLoadingText');
+      const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
+      if (fill) fill.style.width = phase2Pct + '%';
+      if (txt) txt.textContent = 'Loading video ' + realPct + '%';
+      if (loadedCount >= TOTAL_FRAMES) {
+        const sbar = document.getElementById('siteLoadingBar');
+        if (txt) txt.textContent = 'Loading complete';
+        setTimeout(() => { if(sbar) { sbar.classList.remove('active'); sbar.classList.add('done'); } }, 800);
+      }
+    }
   }
 
   next();
@@ -78,7 +98,11 @@ function preloadFrames() {
 
 function finishLoading() {
   isReady = true;
-  if (loader) loader.classList.add('hidden');
+  if (!preloaderDismissed) { loader.classList.add('hidden'); }
+  const slb = document.getElementById('siteLoadingBar');
+  const slbTxt = document.getElementById('siteLoadingText');
+  if (slbTxt) slbTxt.textContent = 'Loading complete';
+  setTimeout(() => { if(slb) { slb.classList.remove('active'); slb.classList.add('done'); } }, 800);
   // First page is-active
   if (pages[0]) pages[0].classList.add('is-active');
 }
